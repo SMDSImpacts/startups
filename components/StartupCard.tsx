@@ -12,7 +12,7 @@ import Image from "next/image";
 import CloudinaryImage from "@/components/CloudinaryImage";
 import {Button} from "@/components/ui/button";
 
-const StartupCard = ( {post}:{post: StartupTypeCard})  => {
+const StartupCard = ( {post}:{post: any})  => {
     const { _createdAt, views, title, description, category } = post;
     return (
         <li className="">
