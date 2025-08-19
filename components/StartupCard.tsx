@@ -1,7 +1,9 @@
 import React from 'react';
 import {
     Card,
-    CardDescription, CardFooter, CardTitle,
+    CardDescription,
+    CardFooter,
+    CardTitle,
 } from "@/components/ui/card"
 import {formalDate} from "@/lib/utils";
 import { EyeIcon} from "lucide-react";
