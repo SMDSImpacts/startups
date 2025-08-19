@@ -4,17 +4,16 @@ import { Input } from "./ui/input";
 import SearchFormReset from "./SearchFormReset";
 import { Search } from "lucide-react";
 
-const SearchForm = ({query}: {query? : string}) => {
-  
+const SearchForm  = ({query}: {query? : string | undefined }) : React.JSX.Element => {
+
   return (
-    <Form action="/" scroll={false} className="">
+    <Form action="/" scroll={false} className="border border-gray-700 rounded-2xl bg-blue-400">
       <div className="flex">
-      
       <Input
         name="query"
-        defaultValue={query}
+        defaultValue=""
         placeholder="Search startups"
-        className="text-white"
+        className="text-white border-none"
       />
 
         {query && <SearchFormReset />}

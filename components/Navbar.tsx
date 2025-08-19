@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { auth, signIn, signOut } from "@/auth";
 import Image from "next/image";
+import {Session} from "next-auth";
+import {JSX} from "react";
 
 
-const Navbar = async () => {
-    const session = await auth();
-  return (
+const Navbar = async () :Promise<JSX.Element> => {
+    const session : Session | null = await auth();
+    return (
   <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
     <nav className="flex justify-between items-center">
       <Link href="/">
@@ -18,10 +20,10 @@ const Navbar = async () => {
               <span>Create</span>
             </Link>
 
-            <form action={async () => {
+            <form action={async () :Promise<void> => {
               'use server'
 
-              await signOut
+              await signOut()
               }}>
               <button type="submit">Logout</button>
             </form>            
@@ -29,12 +31,15 @@ const Navbar = async () => {
             
           </>
         ) : (
-          <form action={async() =>{
-            'use server'
+            <>
+          <form action={async() :Promise<void> =>{
+            'use server';
 
-            await signIn("github")}}>
+            await signIn( "github");
+          }}>
             <button type="submit">Login</button>
           </form>
+            </>
         )}
       </div>
     </nav>
