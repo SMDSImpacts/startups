@@ -7,7 +7,6 @@ import type { Post } from "@/type"; // Make sure you have created and exported t
 
 // Define the correct props for a Next.js Page Component in the App Router
 type HomePageProps = {
-    params: { slug: string }; // Even if you don't use it, this is part of the type
     searchParams: { [key: string]: string | string[] | undefined }; // The correct, flexible type for searchParams
 };
 
