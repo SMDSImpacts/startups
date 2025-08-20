@@ -1,13 +1,14 @@
 import SearchForm from "../../components/SearchForm";
+import { JSX } from "react";
 import StartupCard from "@/components/StartupCard";
 import { Post } from '@/type'
 
 // --- STEP 2: Correct the component's props typing ---
-export default  function Home(
+export default async function Home(
     { searchParams }: { searchParams: { query?: string } }
-) {
+): Promise<JSX.Element> {
     // --- STEP 3: Correct how you access the query ---
-    const query = searchParams.query;
+    const query = searchParams.query as string | undefined;
 
     // --- STEP 4: Strongly type your data array ---
     // This allows TypeScript to automatically know the type of 'post' in the .map()
