@@ -3,13 +3,13 @@ import StartupCard from "@/components/StartupCard";
 import type { Post } from "@/type";
 
 type HomePageProps = {
-    searchParams: { [key: string]: string | string[] | undefined };
+    searchParams: { [key: string]: string | undefined };
 };
 
 export default async function Home({ searchParams }: HomePageProps) {
-    const resolvedSearchParams = await searchParams;
+    const resolvedSearchParams   = await searchParams;
 
-    const query =  resolvedSearchParams.q
+    const query  =  resolvedSearchParams.q
 
 
     const posts: Post[] = [
