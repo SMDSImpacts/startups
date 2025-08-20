@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: '',
+                hostname: 'https://res.cloudinary.com/smdsimages',
             }
         ]
     }

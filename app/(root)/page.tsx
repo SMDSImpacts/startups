@@ -19,7 +19,7 @@ export default async function Home({ searchParams }: HomePageProps) {
             views: 55,
             author: { _id: 67890, name: "Sam Chukwuemeka" },
             description: "This is a description",
-            image: "https://res.cloudinary.com/smdsimages/image/upload/v1755625986/code-unsplash_u5t665.jpg",
+            image: "/image/upload/v1755625986/code-unsplash_u5t665.jpg",
             category: "Robots",
             title: "We Robots",
         },
