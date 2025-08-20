@@ -1,7 +1,6 @@
 // app/(root)/page.tsx
 
 import SearchForm from "@/components/SearchForm";
-import { JSX } from "react";
 import StartupCard from "@/components/StartupCard";
 import type { Post } from "@/type"; // Make sure you have created and exported this type from '/types/index.ts'
 
@@ -10,7 +9,7 @@ type HomePageProps = {
     searchParams: { [key: string]: string | string[] | undefined }; // The correct, flexible type for searchParams
 };
 
-export default async function Home({ searchParams }: HomePageProps): Promise<JSX.Element> {
+export default async function Home({ searchParams }: HomePageProps) {
     // Correctly access the query parameter. It is a direct property access, NO await.
     const query = searchParams.query as string | undefined;
 
