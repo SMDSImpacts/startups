@@ -12,7 +12,7 @@ import Image from "next/image";
 import CloudinaryImage from "@/components/CloudinaryImage";
 import {Button} from "@/components/ui/button";
 
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const StartupCard = ( {post}:{post: any})  => {
     const { _createdAt, views, title, description, category } = post;
     return (
