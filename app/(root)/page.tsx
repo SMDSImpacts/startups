@@ -1,12 +1,11 @@
 import SearchForm from "../../components/SearchForm";
-import { JSX } from "react";
 import StartupCard from "@/components/StartupCard";
 import { Post } from '@/type'
 
 // --- STEP 2: Correct the component's props typing ---
-export default async function Home(
+export default  function Home(
     { searchParams }: { searchParams: { query?: string } }
-): Promise<JSX.Element> {
+) {
     // --- STEP 3: Correct how you access the query ---
     const query = searchParams.query;
 
