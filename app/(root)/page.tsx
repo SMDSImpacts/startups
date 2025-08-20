@@ -9,7 +9,7 @@ type HomePageProps = {
     searchParams: { [key: string]: string | string[] | undefined }; // The correct, flexible type for searchParams
 };
 
-export default async function Home({ searchParams }: HomePageProps) {
+export default function Home({ searchParams }: HomePageProps) {
     // Correctly access the query parameter. It is a direct property access, NO await.
     const query = searchParams.query as string | undefined;
 
