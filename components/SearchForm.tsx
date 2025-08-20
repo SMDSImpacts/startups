@@ -4,7 +4,7 @@ import { Input } from "./ui/input";
 import SearchFormReset from "./SearchFormReset";
 import { Search } from "lucide-react";
 
-const SearchForm  = ({query}: {query? : string | undefined }) : React.JSX.Element => {
+const SearchForm  = ({query}: {query? : string | undefined }) => {
 
   return (
     <Form action="/" scroll={false} className="border border-gray-700 rounded-2xl bg-blue-400">

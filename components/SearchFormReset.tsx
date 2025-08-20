@@ -3,9 +3,8 @@
 import { X } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import {JSX} from "react";
 
-const SearchFormReset = () :JSX.Element => {
+const SearchFormReset = () => {
     const reset = () :void => {
         const form = document.querySelector( '.search-form') as HTMLFormElement;
         if (form) form.reset()
