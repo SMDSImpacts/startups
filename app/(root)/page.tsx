@@ -1,19 +1,16 @@
-// app/(root)/page.tsx
-
 import SearchForm from "@/components/SearchForm";
 import StartupCard from "@/components/StartupCard";
-import type { Post } from "@/type"; // Make sure you have created and exported this type from '/types/index.ts'
+import type { Post } from "@/type"; // Make sure
 
-// Define the correct props for a Next.js Page Component in the App Router
 type HomePageProps = {
-    searchParams: { [key: string]: string | string[] | undefined }; // The correct, flexible type for searchParams
+    searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export default function Home({ searchParams }: HomePageProps) {
-    // Correctly access the query parameter. It is a direct property access, NO await.
+export default async function Home({ searchParams }: HomePageProps) {
+
     const query = searchParams.query as string | undefined;
 
-    // This data MUST match the shape defined in your `Post` type
+
     const posts: Post[] = [
         {
             _id: 12345,
