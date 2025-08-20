@@ -11,10 +11,11 @@ import Link from "next/link";
 import Image from "next/image";
 import CloudinaryImage from "@/components/CloudinaryImage";
 import {Button} from "@/components/ui/button";
+import type { Post } from '@/type'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const StartupCard = ( {post}:{post: any})  => {
-    const { _createdAt, views, title, description, category } = post;
+
+const StartupCard = ( post: Post)  => {
+    const { _createdAt, views, title, description, category, author, _id } = post;
     return (
         <li className="">
             <Card className="hover:border-pink-700 hover:bg-pink-100 bg-pink-50">
@@ -52,7 +53,7 @@ const StartupCard = ( {post}:{post: any})  => {
                             className="rounded-full"
                         />
                     </div>
-                        <Link href={`/user/${post.author._id}`}>
+                        <Link href={`/user/${_id}`}>
                             <Image
                                 alt="card image"
                                 src="/logo.png"
@@ -61,7 +62,7 @@ const StartupCard = ( {post}:{post: any})  => {
                             />
                         </Link>
                     <div>
-                        <Link href={`/startup/${post.author._id}`}>
+                        <Link href={`/startup/${author?._id}`}>
                             <CardDescription>
                                 {description}
                             </CardDescription>

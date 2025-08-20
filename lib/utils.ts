@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function formalDate(date : string) {
+export function formalDate(date : Date) {
     return new Date(date).toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
