@@ -1,14 +1,15 @@
 import SearchForm from "@/components/SearchForm";
 import StartupCard from "@/components/StartupCard";
-import type { Post } from "@/type"; // Make sure
+import type { Post } from "@/type";
 
 type HomePageProps = {
     searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export default async function Home({ searchParams }: HomePageProps) {
+    const resolvedSearchParams = await searchParams;
 
-    const query = searchParams.query as string | undefined;
+    const query =  resolvedSearchParams.q
 
 
     const posts: Post[] = [
