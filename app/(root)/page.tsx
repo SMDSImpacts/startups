@@ -17,7 +17,7 @@ export default async function Home({ searchParams }: HomePageProps) {
             _id: 12345,
             _createdAt: new Date(),
             views: 55,
-            author: { _id: 67890, name: "Sam Chukwuemeka" },
+            author: { _id: 67890, name: "Sam Paragon" },
             description: "This is a description",
             image: "/image/upload/v1755625986/code-unsplash_u5t665.jpg",
             category: "Robots",
