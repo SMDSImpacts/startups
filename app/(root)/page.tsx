@@ -12,8 +12,8 @@ export default async function Home(
 
     // --- STEP 4: Strongly type your data array ---
     // This allows TypeScript to automatically know the type of 'post' in the .map()
-    const posts: Post[] = {
-        _id: 123, // Added because StartupCard likely needs it
+    const posts: Post[] = [{
+        _id: 1, // Added because StartupCard likely needs it
         _createdAt: new Date(),
         views: 55,
         author: { _id: 1, name: "Sam Chukwuemeka" },
@@ -21,7 +21,7 @@ export default async function Home(
         image: "https://res.cloudinary.com/smdsimages/image/upload/v1755625986/code-unsplash_u5t665.jpg",
         category: "Robots",
         title: "We Robots"
-    };
+    }];
 
     return (
         <>

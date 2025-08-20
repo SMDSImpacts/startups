@@ -11,10 +11,9 @@ import Link from "next/link";
 import Image from "next/image";
 import CloudinaryImage from "@/components/CloudinaryImage";
 import {Button} from "@/components/ui/button";
-import type { Post } from '@/type'
 
-
-const StartupCard = ( post: Post)  => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const StartupCard = ( {post}: {post: any})  => {
     const { _createdAt, views, title, description, category, author, _id } = post;
     return (
         <li className="">
