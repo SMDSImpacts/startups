@@ -3,7 +3,7 @@ import StartupCard from "@/components/StartupCard";
 import type { Post } from "@/type";
 
 type HomePageProps = {
-    searchParams: { [key: string]: string | undefined };
+    searchParams: Promise< { [key: string]: string | undefined }>;
 };
 
 export default async function Home({ searchParams }: HomePageProps) {
