@@ -15,7 +15,7 @@ export default async function Home({searchParams, }:{
         <>
             <section className="h-[300px] w-auto bg-pink-500 flex p-6 items-center flex-col">
                 <h1 className="uppercase bg-black px-6 py-3 font-work-sans font-extrabold text-white sm:text-[44px] sm:leading-[54px] text-[36px] leading-[46px] max-w-5xl text-center my-5">
-                    Pitch your tent here; Let other developers feel your potentials
+                    Pitch your tent here; Let other developers feel your potentials. S
                 </h1>
                 <div className="border-none">
                     <SearchForm query={query} />
