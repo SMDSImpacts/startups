@@ -1,29 +1,15 @@
 import SearchForm from "@/components/SearchForm";
-import StartupCard from "@/components/StartupCard";
-import type { Post } from "@/type";
+import StartupCard, { StartupCardType } from "@/components/StartupCard";
+import {STARTUPS_QUERY} from "@/sanity/lib/Queries"
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 
-type HomePageProps = {
-    searchParams: Promise< { [key: string]: string | undefined }>;
-};
+export default async function Home({searchParams, }:{
+    searchParams: Promise<{ query?: string }>
+}) {
 
-export default async function Home({ searchParams }: HomePageProps) {
-    const resolvedSearchParams   = await searchParams;
-
-    const query  =  resolvedSearchParams.q
-
-
-    const posts: Post[] = [
-        {
-            _id: 12345,
-            _createdAt: new Date(),
-            views: 55,
-            author: { _id: 67890, name: "Sam Paragon" },
-            description: "This is a description",
-            image: "/image/upload/v1755625986/code-unsplash_u5t665.jpg",
-            category: "Robots",
-            title: "We Robots",
-        },
-    ];
+    const query  =  (await searchParams).query;
+    const params = { search: query || null}
+    const { data: posts } = await sanityFetch({query: STARTUPS_QUERY, params})
 
     return (
         <>
@@ -37,21 +23,22 @@ export default async function Home({ searchParams }: HomePageProps) {
             </section>
 
             <section>
-                <p>
+                <p className="mt-2">
                     {query ? `Search results for ${query}` : 'All caught up'}
                 </p>
 
                 <ul className="mt-7 grid md:grid-cols-3 sm:grid-cols-2 gap-5">
                     {posts?.length > 0 ? (
-                        posts.map((post) => (
-                            // This is now fully type-safe
-                            <StartupCard key={post._id} post={post} />
+                        posts.map((post: StartupCardType) => (
+                            <StartupCard key={post?._id} post={post} />
                         ))
                     ) : (
                         <p>No startups found</p>
                     )}
                 </ul>
             </section>
+
+            <SanityLive />
         </>
     );
 }

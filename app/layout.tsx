@@ -1,63 +1,76 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { SessionProvider } from "next-auth/react";
-import { ReactNode } from "react";
-
 import "./globals.css";
-import { auth } from "@/auth";
+import "easymde/dist/easymde.min.css";
 import { Toaster } from "@/components/ui/sonner";
-import { ThemeProvider } from "@/context/theme";
 
-const inter = localFont({
-  src: "./fonts/WorkSans-SemiBold.ttf",
-  variable: "--font-inter",
-  weight: "100 200 300 400 500 700 800 900",
-});
-
-const spaceGrotesk = localFont({
-  src: "./fonts/WorkSans-SemiBold.ttf",
-  variable: "--font-space-grotesk",
-  weight: "300 400 500 700",
+const workSans = localFont({
+    src: [
+        {
+            path: "./fonts/WorkSans-Black.ttf",
+            weight: "900",
+            style: "normal",
+        },
+        {
+            path: "./fonts/WorkSans-ExtraBold.ttf",
+            weight: "800",
+            style: "normal",
+        },
+        {
+            path: "./fonts/WorkSans-Bold.ttf",
+            weight: "700",
+            style: "normal",
+        },
+        {
+            path: "./fonts/WorkSans-SemiBold.ttf",
+            weight: "600",
+            style: "normal",
+        },
+        {
+            path: "./fonts/WorkSans-Medium.ttf",
+            weight: "500",
+            style: "normal",
+        },
+        {
+            path: "./fonts/WorkSans-Regular.ttf",
+            weight: "400",
+            style: "normal",
+        },
+        {
+            path: "./fonts/WorkSans-Black.ttf",
+            weight: "900",
+            style: "normal",
+        },
+        {
+            path: "./fonts/WorkSans-Thin.ttf",
+            weight: "200",
+            style: "normal",
+        },
+        {
+            path: "./fonts/WorkSans-ExtraLight.ttf",
+            weight: "100",
+            style: "normal",
+        },
+    ],
+    variable: "--font-work-sans",
 });
 
 export const metadata: Metadata = {
-  title: "DevSurps",
-  description:
-    "A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and more.",
-  icons: {
-    icon: "/images/site-logo.svg",
-  },
+    title: "YC Directory",
+    description: "Pitch, Vote and Grow",
 };
 
-const RootLayout = async ({ children }: { children: ReactNode }) => {
-  const session = await auth();
-
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-        />
-      </head>
-      <SessionProvider session={session}>
-        <body
-          className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
-        >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-          <Toaster />
+export default function RootLayout({
+                                       children,
+                                   }: Readonly<{
+    children: React.ReactNode;
+}>) {
+    return (
+        <html lang="en">
+        <body className={workSans.variable}>
+        {children}
+        <Toaster />
         </body>
-      </SessionProvider>
-    </html>
-  );
-};
-
-export default RootLayout;
+        </html>
+    );
+}
