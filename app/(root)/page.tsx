@@ -1,5 +1,5 @@
 import SearchForm from "@/components/SearchForm";
-import StartupCard, { StartupCardType } from "@/components/StartupCard";
+import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import {STARTUPS_QUERY} from "@/sanity/lib/Queries"
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 
@@ -13,27 +13,32 @@ export default async function Home({searchParams, }:{
 
     return (
         <>
-            <section className="h-[300px] w-auto bg-pink-500 flex p-6 items-center flex-col">
-                <h1 className="uppercase bg-black px-6 py-3 font-work-sans font-extrabold text-white sm:text-[44px] sm:leading-[54px] text-[36px] leading-[46px] max-w-5xl text-center my-5">
-                    Pitch your tent here; Let other developers feel your potentials. S
+            <section  className="bg-pink-stripes pink_container">
+                <h1 className="heading">
+                    Pitch Your Startup, <br />
+                    Connect With Entrepreneurs
                 </h1>
-                <div className="border-none">
-                    <SearchForm query={query} />
-                </div>
-            </section>
 
-            <section>
-                <p className="mt-2">
-                    {query ? `Search results for ${query}` : 'All caught up'}
+                <p className="sub-heading !max-w-3xl">
+                    Submit Ideas, Vote on Pitches, and Get Noticed in Virtual
+                    Competitions.
                 </p>
 
-                <ul className="mt-7 grid md:grid-cols-3 sm:grid-cols-2 gap-5">
+                <SearchForm query={query} />
+            </section>
+
+            <section className="section_container">
+                <p className="text-30-semibold">
+                    {query ? `Search results for "${query}"` : "All Startups"}
+                </p>
+
+                <ul className="mt-7 card_grid">
                     {posts?.length > 0 ? (
-                        posts.map((post: StartupCardType) => (
+                        posts.map((post: StartupTypeCard) => (
                             <StartupCard key={post?._id} post={post} />
                         ))
                     ) : (
-                        <p>No startups found</p>
+                        <p className="no-result">No startups found</p>
                     )}
                 </ul>
             </section>

@@ -13,10 +13,10 @@ import CloudinaryImage from "@/components/CloudinaryImage";
 import {Button} from "@/components/ui/button";
 import { Author, Startup } from '@/sanity/types'
 
-export type StartupCardType = Omit<Startup, "author"> & {author?: Author}
+export type StartupTypeCard = Omit<Startup, "author"> & {author?: Author}
 
 
-const StartupCard = ( {post}: {post: StartupCardType})  => {
+const StartupCard = ( {post}: {post: StartupTypeCard})  => {
     const {
         _createdAt,
         views,
@@ -82,7 +82,7 @@ const StartupCard = ( {post}: {post: StartupCardType})  => {
                         </Link>
                     </div>
                     <CardFooter className="justify-between">
-                        <Link href={`/?query=${category.toLowerCase()}`}>
+                        <Link href={`/?query=${category?.toLowerCase()}`}>
                            <p>{category}</p>
                         </Link>
                         <Button asChild>
