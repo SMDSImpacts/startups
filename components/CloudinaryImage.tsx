@@ -2,13 +2,13 @@
 import React from 'react';
 import {CldImage} from "next-cloudinary";
 
-const CloudinaryImage = () => {
+const CloudinaryImage = ({image}:{image:string}) => {
     return (
         <CldImage
             alt="placeholder"
             width={200}
             height={200}
-            src="https://res.cloudinary.com/smdsimages/image/upload/v1755625986/code-unsplash_u5t665.jpg"
+            src={image}
             className="h-auto w-auto p-4 rounded-3xl"
         />
     );

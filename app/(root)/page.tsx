@@ -13,7 +13,7 @@ export default async function Home({searchParams, }:{
 
     return (
         <>
-            <section  className="bg-pink-stripes pink_container">
+            <section  className="bg-pink-dots pink_container">
                 <h1 className="heading">
                     Pitch Your Startup, <br />
                     Connect With Entrepreneurs

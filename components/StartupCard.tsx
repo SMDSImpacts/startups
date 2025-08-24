@@ -5,13 +5,14 @@ import {
     CardFooter,
     CardTitle,
 } from "@/components/ui/card"
-import {formatDate} from "@/lib/utils";
+import {cn, formatDate} from "@/lib/utils";
 import { EyeIcon} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import CloudinaryImage from "@/components/CloudinaryImage";
 import {Button} from "@/components/ui/button";
-import { Author, Startup } from '@/sanity/types'
+import { Author, Startup } from '@/sanity/types';
+import { Skeleton } from "@/components/ui/skeleton";
 
 export type StartupTypeCard = Omit<Startup, "author"> & {author?: Author}
 
@@ -24,6 +25,7 @@ const StartupCard = ( {post}: {post: StartupTypeCard})  => {
         title,
         category,
         _id,
+        image,
         description,
     } = post;
     return (
@@ -65,10 +67,10 @@ const StartupCard = ( {post}: {post: StartupTypeCard})  => {
                     </div>
                         <Link href={`/user/${_id}`}>
                             <Image
-                                alt="card image"
-                                src="/logo.png"
-                                width={60}
-                                height={60}
+                                alt={author?.name || "name"}
+                                src={author?.image || "/logo.png"}
+                                width={48}
+                                height={48}
                             />
                         </Link>
                     <div>
@@ -77,7 +79,7 @@ const StartupCard = ( {post}: {post: StartupTypeCard})  => {
                                 {description}
                             </CardDescription>
                             <p>
-                                <CloudinaryImage />
+                                <CloudinaryImage image={image || ""} />
                             </p>
                         </Link>
                     </div>
@@ -85,7 +87,7 @@ const StartupCard = ( {post}: {post: StartupTypeCard})  => {
                         <Link href={`/?query=${category?.toLowerCase()}`}>
                            <p>{category}</p>
                         </Link>
-                        <Button asChild>
+                        <Button className="startup-card_btn" asChild>
                             <Link href={`/startup/${_id}`}>
                                 Details
                             </Link>
@@ -96,5 +98,15 @@ const StartupCard = ( {post}: {post: StartupTypeCard})  => {
         </li>
     );
 };
+
+export const StartupCardSkeleton = () => (
+  <>
+    {[0, 1, 2, 3, 4].map((index: number) => (
+      <li key={cn("skeleton", index)}>
+        <Skeleton className="startup-card_skeleton" />
+      </li>
+    ))}
+  </>
+);
 
 export default StartupCard;

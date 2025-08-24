@@ -39,7 +39,9 @@
   .search-btn {
     @apply size-[50px] rounded-full bg-black flex justify-center items-center;
   }
-
+    .startup-card_btn {
+    @apply rounded-full bg-black font-medium text-[16px] text-white px-5 py-3;
+  }
   
 }
 
@@ -47,8 +49,8 @@
     /* Custom striped pink background */
     .bg-pink-stripes {
         background-color: #ec4899; /* Tailwind pink-500 */
-        background-image: linear-gradient(
-                to right,
+        background-image: radial-gradient(
+                white 10%,
                 transparent 49.5%,
                 rgba(251, 232, 67, 0.2) 49.5%,
                 rgba(251, 232, 67, 0.6) 50.5%,
@@ -59,4 +61,10 @@
         background-repeat: repeat-x;
 
     }
+    .bg-pink-dots {
+  background-color: #ec4899; /* Tailwind pink-500 */
+  background-image: radial-gradient(white 10%, transparent 11%);
+  background-size: 20px 20px; /* adjust dot spacing */
+  background-position: 0 0, 10px 10px; /* offset for tiling */
+}
 }
