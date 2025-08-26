@@ -14,7 +14,13 @@ const nextConfig: NextConfig = {
                 hostname: 'https://res.cloudinary.com/smdsimages',
             }
         ]
-    }
+    },
+     experimental: {
+    ppr: "incremental",
+  },
+  devIndicators: {    
+    position: "bottom-right",    
+  },
 };
 
 export default nextConfig;
