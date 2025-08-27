@@ -57,7 +57,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
               className="flex gap-2 items-center mb-3"
             >
               <Image
-                src={post.author.image}
+                src={post.image}
                 alt="avatar"
                 width={64}
                 height={64}
@@ -65,9 +65,9 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
               />
 
               <div>
-                <p className="text-20-medium">{post.author.name}</p>
+                <p className="text-20-medium">{post.name}</p>
                 <p className="text-16-medium !text-black-300">
-                  @{post.author.username}
+                  @{post.username}
                 </p>
               </div>
             </Link>
