@@ -108,7 +108,7 @@ const StartupForm = () => {
           name="category"
           className="startup-form_input"
           required
-          placeholder="Startup Category (Tech, Health, Education...)"
+          placeholder="Startup Category (Tech, Prose, Education...)"
         />
 
         {errors.category && (
